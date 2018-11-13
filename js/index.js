@@ -58,10 +58,9 @@ function getJson(url) {
       success: function(json) {
         //console.log("great success");
         $("#weather-name").html(json.currently.summary);
-        $("#weather-current").html(Math.round(json.currently.temperature) + "°");
+        $("#weather-current").html(Math.round(json.currently.temperature) + "°c");
         $("#weather-high").html("High: " + Math.round(json.daily.data[0].temperatureMax) + "°c");
         $("#weather-low").html("Low: " + Math.round(json.daily.data[0].temperatureMin) + "°c");
-        setBackground(json.currently.icon);
       }
 
     })
@@ -71,33 +70,3 @@ function getJson(url) {
 }
 
 
-function setBackground(weatherIcon) {
-  //console.log(weatherIcon);
-  switch (weatherIcon) {
-    case "clear-day":
-      document.getElementById("body").style.backgroundImage = 'url("http://feelgrafix.com/data_images/out/15/899301-sunny-day.jpg")';
-      break;
-    case "clear-night":
-      document.getElementById("body").style.backgroundImage = 'url("https://tcklusman.files.wordpress.com/2014/05/tumblr_static_dark-starry-night-sky-226736.jpg")';
-      break;
-    case "rain":
-      document.getElementById("body").style.backgroundImage = 'url("http://wearechange.org/wp-content/uploads/2015/03/1_See_It.jpg")';
-      break;
-    case "cloudy":
-      document.getElementById("body").style.backgroundImage = 'url("http://www.tripwire.com/state-of-security/wp-content/uploads/cache//shutterstock_106367810/4261234929.jpg")';
-      break;
-    case "partly-cloudy-day":
-      document.getElementById("body").style.backgroundImage = 'url("http://www.sturdyforcommonthings.com/wp-content/uploads/2013/03/wind_blowing.jpg")';
-      break;
-    case "partly-cloudy-night":
-      document.getElementById("body").style.backgroundImage = 'url("http://scienceblogs.com/startswithabang/files/2013/04/night-sky-stars.jpeg")';
-      break;
-    case "snow":
-      document.getElementById("body").style.backgroundImage = 'url("http://www.vancitybuzz.com/wp-content/uploads/2015/12/shutterstock_315123593-984x500.jpg")';
-      break;
-    default:
-      break;
-
-  }
-
-}
